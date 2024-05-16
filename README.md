@@ -22,7 +22,7 @@ This project provides a **bash script** to create an S3 bucket, configure it to 
 1. Clone the repository to your local machine:
 ```bash
 git clone https://github.com/DavidKoterlan/S3-Static-Website-Hosting-Script.git
-cd s3-static-website
+cd S3-Static-Website-Hosting-Script
 ```
 2. Make the script executable:
 ```bash
