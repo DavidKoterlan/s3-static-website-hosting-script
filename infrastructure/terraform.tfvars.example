@@ -1,0 +1,3 @@
+aws-profile = "example-profile"
+aws-region  = "eu-central-1"
+bucket_name = "example-bucket"
