@@ -1,7 +1,7 @@
 #!/bin/sh
-cd ./infrastructure || exit
 
 # Extract bucket name and URL from Terraform outputs
+cd ./infrastructure || exit
 BUCKET_NAME="$(terraform output -raw bucket_name)"
 URL="$(terraform output -raw s3_bucket_url)"
 PROFILE="$(terraform output -raw aws_profile)"
@@ -24,8 +24,8 @@ if [ -z "$PROFILE" ]; then
     exit 1
 fi
 
+# Upload files to the S3 bucket
 cd .. || exit
-# Ensure paths are correct
 aws s3api put-object --profile "$PROFILE" --bucket "$BUCKET_NAME" --key index.html --body "./app/index.html" --content-type "text/html"
 aws s3api put-object --profile "$PROFILE" --bucket "$BUCKET_NAME" --key style.css --body "./app/style.css" --content-type "text/css"
 aws s3api put-object --profile "$PROFILE" --bucket "$BUCKET_NAME" --key cat_image.png --body "./app/cat_image.png" --content-type "image/png"
